@@ -1,0 +1,490 @@
+import React from 'react';
+import { History, Award, BookOpen, User, Star } from 'lucide-react';
+
+export default function OurStory() {
+  return (
+    <div className="story-container">
+      {/* Page Header */}
+      <section className="story-hero">
+        <div className="story-hero-content">
+          <span className="section-subtitle">Since 1940</span>
+          <h1>Our Story</h1>
+          <p className="hero-lead">
+            Discover the journey of a simple street cart that introduced Cendol to Taiping,
+            growing into a timeless culinary legacy preserved for three generations.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Historical Chapter */}
+      <section className="history-chapter">
+        <div className="chapter-grid">
+          <div className="chapter-text">
+            <h2>The Birth of Taiping Cendol</h2>
+            <p>
+              In the early 1940s, a young merchant named <strong>P.M. Abdul Kader</strong> arrived in the town of 
+              Taiping, Perak, from India. Bringing along family traditions and a passion for street cooking, he decided 
+              to introduce a refreshing sweet dessert to the warm tropical town: <strong>Cendol</strong>.
+            </p>
+            <p>
+              Operating a modest cart along <strong>Jalan Taming Sari</strong> (then known as Main Road) near the historic 
+              Bismillah Restaurant, his stall quickly became a hub for locals seeking relief from the heat. In those 
+              pioneering days, a fresh bowl of hand-shaved ice, coconut milk, and green rice-flour noodles cost 
+              merely <strong>one to three cents</strong>.
+            </p>
+            <div className="story-quote glass-card">
+              <Star size={24} className="quote-icon" />
+              <p>
+                "As the business operated near the Bismillah Restaurant, it became famously known in Perak as 
+                <strong> Bismillah Cendol</strong> or simply <strong>Taiping Cendol</strong>. It was here that Taiping's 
+                reputation as a cendol capital was born."
+              </p>
+            </div>
+          </div>
+          <div className="chapter-image">
+            <img src="/images/image3.jpg" alt="Vintage Drawing of P.M. Abdul Kader Stall" className="heritage-photo" />
+            <span className="image-caption">Pen-and-ink illustration depicting the original street service.</span>
+          </div>
+        </div>
+      </section>
+
+      {/* The Timeline */}
+      <section className="timeline-section">
+        <div className="section-header">
+          <span className="section-subtitle">Our Journey</span>
+          <h2 className="section-title">Timeline of Legacy</h2>
+          <p className="section-desc">
+            How a three-generation commitment to quality maintained the same authentic recipe for over 80 years.
+          </p>
+        </div>
+
+        <div className="timeline">
+          {/* Milestone 1 */}
+          <div className="timeline-item left">
+            <div className="timeline-dot"><History size={16} /></div>
+            <div className="timeline-content glass-card">
+              <span className="timeline-date">1940s</span>
+              <h3>The Arrival</h3>
+              <p>
+                P.M. Abdul Kader introduces Cendol to Taiping, Perak. Using wooden hand shavers and fresh pandan leaves, 
+                he serves bowl-by-bowl to travellers and residents on Jalan Taming Sari.
+              </p>
+            </div>
+          </div>
+
+          {/* Milestone 2 */}
+          <div className="timeline-item right">
+            <div className="timeline-dot"><History size={16} /></div>
+            <div className="timeline-content glass-card">
+              <span className="timeline-date">1970s</span>
+              <h3>Perfecting the Secret</h3>
+              <p>
+                His son, <strong>S.M. Abdul Rahman</strong>, takes over the business. He standardizes the cooking 
+                processes and refines the mixture of brown sugars, introducing the premium Gula Melaka syrup formula 
+                that preserves quality across batches.
+              </p>
+            </div>
+          </div>
+
+          {/* Milestone 3 */}
+          <div className="timeline-item left">
+            <div className="timeline-dot"><History size={16} /></div>
+            <div className="timeline-content glass-card">
+              <span className="timeline-date">2000s</span>
+              <h3>Street Heritage Recognition</h3>
+              <p>
+                On 27th November 2004, the restaurant is celebrated in "A Path to Street Heritage", supported by the 
+                Ministry of Tourism Malaysia and Perak State authorities, cementing its title as "Ansari's Famous Cendol".
+              </p>
+            </div>
+          </div>
+
+          {/* Milestone 4 */}
+          <div className="timeline-item right">
+            <div className="timeline-dot"><History size={16} /></div>
+            <div className="timeline-content glass-card">
+              <span className="timeline-date">Present Day</span>
+              <h3>The Visionary Growth</h3>
+              <p>
+                Now managed by <strong>Ansari Abdul Rahman</strong>. While keeping the main Taiping stall's authenticity, 
+                he pursues an ambition to share this taste across Malaysia with planned branches in Kuala Lumpur, 
+                Penang, Johor Bahru, Alor Setar, and Ipoh.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Family Legacy Tree */}
+      <section className="family-legacy-section">
+        <div className="section-header">
+          <span className="section-subtitle">Heritage Custodians</span>
+          <h2 className="section-title">The Family Lineage</h2>
+          <p className="section-desc">
+            Passed down from grandfather, to father, to son. The hands that shaped the history of Taiping Cendol.
+          </p>
+        </div>
+
+        <div className="family-tree">
+          <div className="tree-node glass-card">
+            <div className="node-icon"><User size={24} /></div>
+            <span className="node-title">The Initiator</span>
+            <h3>P.M. Abdul Kader</h3>
+            <span className="node-period">1940s - 1970s</span>
+            <p>Brought the craft of Cendol from India, creating the foundation of Jalan Taming Sari's street icon.</p>
+          </div>
+
+          <div className="tree-connector"></div>
+
+          <div className="tree-node glass-card">
+            <div className="node-icon"><User size={24} /></div>
+            <span className="node-title">The Refiner</span>
+            <h3>S.M. Abdul Rahman</h3>
+            <span className="node-period">1970s - 2000s</span>
+            <p>Formulated the signature Gula Melaka sugar blend, ensuring long-term consistency.</p>
+          </div>
+
+          <div className="tree-connector"></div>
+
+          <div className="tree-node glass-card highlight-node">
+            <div className="node-icon"><User size={24} /></div>
+            <span className="node-title">The Modern Guardian</span>
+            <h3>Ansari Abdul Rahman</h3>
+            <span className="node-period">2000s - Present</span>
+            <p>Standardized the brand name and expands the legacy to Malaysia's main urban hubs.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Secret Recipe Showcase */}
+      <section className="secret-showcase">
+        <div className="secret-grid">
+          <div className="secret-image">
+            <img src="/images/image1.jpg" alt="Ansari preparing Cendol" className="heritage-photo" />
+          </div>
+          <div className="secret-content">
+            <h2>The Secret of Gula Melaka</h2>
+            <p>
+              Many ask why Ansari's Famous Cendol tastes distinct from standard commercial varieties. The answer lies 
+              in our syrup, prepared in a special way handed down across decades.
+            </p>
+            <p>
+              Instead of standard processed white sugar, we blend authentic local palm sugar (Gula Melaka) with 
+              two other varieties of brown sugar. Slowly heated in copper vats and double-filtered, this molasses-like 
+              liquid delivers a rich, earthy sweetness that never feels overwhelming, clinging perfectly to the shaved ice.
+            </p>
+            <div className="heritage-seal">
+              <Award size={36} />
+              <div>
+                <h4>Certified Street Heritage</h4>
+                <p>Preserving Traditional Hand-Crafted Production Methods Since 1940.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .story-hero {
+          background: linear-gradient(135deg, var(--dark) 0%, var(--amber) 100%);
+          color: var(--text-light);
+          padding: 8rem 8% 6rem 8%;
+          text-align: center;
+        }
+        .story-hero-content {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .story-hero h1 {
+          font-family: var(--font-serif);
+          font-size: 4rem;
+          color: #fff;
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        .hero-lead {
+          font-size: 1.25rem;
+          opacity: 0.9;
+          font-weight: 300;
+        }
+
+        /* History Chapter */
+        .history-chapter {
+          padding: 6rem 8%;
+        }
+        .chapter-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 5rem;
+          align-items: center;
+        }
+        .chapter-text h2 {
+          font-family: var(--font-serif);
+          font-size: 3rem;
+          color: var(--amber);
+          margin-bottom: 1.5rem;
+        }
+        .chapter-text p {
+          margin-bottom: 1.5rem;
+          font-size: 1.05rem;
+          color: var(--text-dark);
+        }
+        .story-quote {
+          padding: 2rem;
+          border-left: 4px solid var(--amber-light);
+          margin-top: 2rem;
+          position: relative;
+        }
+        .quote-icon {
+          position: absolute;
+          top: -15px;
+          right: 20px;
+          color: var(--amber-glow);
+        }
+        .story-quote p {
+          margin: 0;
+          font-style: italic;
+          font-family: var(--font-serif);
+          font-size: 1.15rem;
+          color: var(--amber);
+        }
+        .heritage-photo {
+          width: 100%;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-lg);
+          border: 4px solid #fff;
+          object-fit: cover;
+          max-height: 400px;
+        }
+        .image-caption {
+          display: block;
+          text-align: center;
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          margin-top: 1rem;
+          font-style: italic;
+        }
+
+        /* Timeline */
+        .timeline-section {
+          padding: 6rem 8%;
+          background-color: var(--cream-light);
+        }
+        .timeline {
+          position: relative;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        .timeline::after {
+          content: '';
+          position: absolute;
+          width: 4px;
+          background-color: var(--amber-glow);
+          top: 0;
+          bottom: 0;
+          left: 50%;
+          margin-left: -2px;
+        }
+        .timeline-item {
+          padding: 10px 40px;
+          position: relative;
+          width: 50%;
+        }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        
+        .timeline-dot {
+          width: 32px;
+          height: 32px;
+          position: absolute;
+          background-color: var(--primary);
+          border: 4px solid var(--cream-light);
+          border-radius: 50%;
+          top: 15px;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+        }
+        .timeline-item.left .timeline-dot { right: -16px; }
+        .timeline-item.right .timeline-dot { left: -16px; }
+        
+        .timeline-content {
+          padding: 2rem;
+          position: relative;
+        }
+        .timeline-date {
+          display: inline-block;
+          font-weight: 700;
+          color: var(--primary-light);
+          margin-bottom: 0.5rem;
+          font-size: 1.1rem;
+        }
+        .timeline-content h3 {
+          font-family: var(--font-serif);
+          font-size: 1.6rem;
+          color: var(--amber);
+          margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          margin: 0;
+        }
+
+        /* Family Legacy Tree */
+        .family-legacy-section {
+          padding: 6rem 8%;
+        }
+        .family-tree {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .tree-node {
+          padding: 2.5rem;
+          width: 100%;
+          text-align: center;
+          position: relative;
+          border-radius: var(--radius-md);
+          transition: var(--transition-smooth);
+        }
+        .tree-node:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-lg);
+        }
+        .highlight-node {
+          border: 2px solid var(--primary-light);
+          background: rgba(255, 255, 255, 0.9);
+        }
+        .node-icon {
+          width: 48px;
+          height: 48px;
+          background: var(--amber-glow);
+          color: var(--amber);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1rem auto;
+        }
+        .highlight-node .node-icon {
+          background: var(--primary-glow);
+          color: var(--primary);
+        }
+        .node-title {
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 600;
+          color: var(--text-muted);
+          display: block;
+          margin-bottom: 0.25rem;
+        }
+        .tree-node h3 {
+          font-family: var(--font-serif);
+          font-size: 2rem;
+          color: var(--amber);
+          margin-bottom: 0.25rem;
+        }
+        .node-period {
+          font-size: 0.9rem;
+          color: var(--primary-light);
+          font-weight: 600;
+          display: block;
+          margin-bottom: 1rem;
+        }
+        .tree-node p {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          margin: 0;
+        }
+        .tree-connector {
+          width: 4px;
+          height: 50px;
+          background: var(--amber-glow);
+        }
+        .highlight-node .node-title {
+          color: var(--primary-light);
+        }
+
+        /* Secret Showcase */
+        .secret-showcase {
+          padding: 6rem 8%;
+          background-color: var(--cream-light);
+        }
+        .secret-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+          gap: 5rem;
+          align-items: center;
+        }
+        .secret-content h2 {
+          font-family: var(--font-serif);
+          font-size: 2.8rem;
+          color: var(--amber);
+          margin-bottom: 1.5rem;
+        }
+        .secret-content p {
+          margin-bottom: 1.2rem;
+          color: var(--text-dark);
+        }
+        .heritage-seal {
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          padding: 1.5rem;
+          background: #fff;
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-sm);
+          border: 1px solid var(--border-color);
+          margin-top: 2rem;
+        }
+        .heritage-seal svg {
+          color: var(--amber-light);
+          flex-shrink: 0;
+        }
+        .heritage-seal h4 {
+          font-family: var(--font-serif);
+          font-size: 1.2rem;
+          color: var(--amber);
+          margin-bottom: 0.25rem;
+        }
+        .heritage-seal p {
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+          .chapter-grid, .secret-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+          }
+          .chapter-image {
+            order: -1;
+          }
+          .timeline::after {
+            left: 31px;
+          }
+          .timeline-item {
+            width: 100%;
+            padding-left: 70px;
+            padding-right: 25px;
+          }
+          .timeline-item.right {
+            left: 0;
+          }
+          .timeline-dot {
+            left: 15px !important;
+            right: auto !important;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
