@@ -1,63 +1,96 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Coffee, Leaf, ChevronRight, Award } from 'lucide-react';
+import { Star, Leaf } from 'lucide-react';
 
 const FALLBACK_MENU = [
   {
     id: 1,
-    name: 'Cendol Biasa (Traditional Cendol)',
-    description: 'The standard heritage bowl. A refreshing mix of fresh pandan green noodles, creamy coconut milk, shaved ice, and our signature Gula Melaka syrup.',
-    price: 3.50,
+    name: 'Biasa',
+    description: 'Classic bowl of Ansari Famous Cendol.',
+    price: 2.00,
     category: 'cendol',
     tag: 'Classic',
     badge: 'Original'
   },
   {
     id: 2,
-    name: 'Cendol Kacang (Red Beans)',
-    description: 'Our traditional cendol served with a generous topping of slow-cooked, sweetened red kidney beans adding a soft, nutty texture.',
-    price: 4.00,
+    name: 'Berkacang',
+    description: 'Cendol served with red beans.',
+    price: 2.20,
     category: 'cendol',
     tag: 'Popular'
   },
   {
     id: 3,
-    name: 'Cendol Pulut (Glutinous Rice)',
-    description: 'Features a scoop of sticky, perfectly steamed glutinous rice (pulut), making the dessert richer and extra filling.',
-    price: 4.20,
+    name: 'Berjagung',
+    description: 'Cendol served with sweet corn.',
+    price: 2.20,
+    category: 'cendol'
+  },
+  {
+    id: 4,
+    name: 'Berpulut',
+    description: 'Cendol served with glutinous rice.',
+    price: 2.60,
     category: 'cendol',
     tag: 'Heritage'
   },
   {
-    id: 4,
-    name: 'Cendol Special (Red Beans & Pulut)',
-    description: 'The ultimate bowl. A double-loaded combination featuring both sweet red kidney beans and sticky glutinous rice (pulut).',
-    price: 4.80,
-    category: 'cendol',
-    tag: 'Highly Recommended',
-    badge: 'Best Seller'
-  },
-  {
     id: 5,
-    name: 'Pasembur Traditional (Rojak)',
-    description: 'Famous Malaysian Indian street salad. A crispy heap of shredded cucumber, turnip, bean curd, and potato fritters topped with a warm, sweet, and spicy peanut gravy.',
-    price: 7.00,
-    category: 'savory',
-    tag: 'Local Favorite'
+    name: 'Kacang & Jagung',
+    description: 'Cendol served with red beans and sweet corn.',
+    price: 2.40,
+    category: 'cendol'
   },
   {
     id: 6,
-    name: 'Pasembur Special (With Squid)',
-    description: 'Our traditional Pasembur loaded with premium boiled egg, crispy prawn fritters, and marinated honey-spiced cuttlefish.',
-    price: 9.00,
-    category: 'savory',
-    badge: 'Premium'
+    name: 'Kacang & Pulut',
+    description: 'Cendol served with red beans and glutinous rice.',
+    price: 2.80,
+    category: 'cendol'
   },
   {
     id: 7,
-    name: 'Ais Kacang (ABC)',
-    description: 'A traditional Malaysian shaved ice mountain topped with sweet cream corn, red beans, grass jelly, rose syrup, and evaporated milk.',
-    price: 5.00,
-    category: 'dessert'
+    name: 'Kacang & Pulut & Jagung (SP)',
+    description: 'Special cendol with red beans, glutinous rice, and sweet corn.',
+    price: 3.00,
+    category: 'cendol',
+    badge: 'Special'
+  },
+  {
+    id: 8,
+    name: 'Take Away Cendol Kecil',
+    description: 'Small packed cendol for take away.',
+    price: 2.50,
+    category: 'takeaway'
+  },
+  {
+    id: 9,
+    name: 'Take Away Cendol Berkacang',
+    description: 'Packed cendol with red beans for take away.',
+    price: 2.70,
+    category: 'takeaway'
+  },
+  {
+    id: 10,
+    name: 'Take Away Cendol Besar',
+    description: 'Large packed cendol for take away.',
+    price: 4.40,
+    category: 'takeaway'
+  },
+  {
+    id: 11,
+    name: 'Take Away Cendol Besar Berkacang',
+    description: 'Large packed cendol with red beans for take away.',
+    price: 4.70,
+    category: 'takeaway'
+  },
+  {
+    id: 12,
+    name: 'Pasembor',
+    description: 'Pasembor served packed or plated.',
+    price: 4.70,
+    category: 'savory',
+    tag: 'Local Favorite'
   }
 ];
 
@@ -127,10 +160,10 @@ export default function Menu() {
             Savory Pasembur
           </button>
           <button 
-            className={`filter-btn ${activeCategory === 'dessert' ? 'active' : ''}`}
-            onClick={() => setActiveCategory('dessert')}
+            className={`filter-btn ${activeCategory === 'takeaway' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('takeaway')}
           >
-            Desserts & Drinks
+            Take Away
           </button>
         </div>
 
@@ -167,63 +200,6 @@ export default function Menu() {
               </div>
             ))
           )}
-        </div>
-      </section>
-
-      {/* The Heritage Recipe Card */}
-      <section className="recipe-showcase-section">
-        <div className="recipe-card-wrapper glass-card">
-          <div className="recipe-image-side">
-            <img src="/images/image2.jpg" alt="Bowl of Cendol" className="recipe-photo" />
-            <div className="recipe-tag">
-              <Award size={20} /> Official Heritage Formulation
-            </div>
-          </div>
-          <div className="recipe-content-side">
-            <span className="recipe-subtitle">Grandfather's Kitchen Notebook</span>
-            <h2>How to Assemble Taiping Cendol</h2>
-            <p className="recipe-intro">
-              The classic preparation steps recorded in the 2004 historical street archives.
-            </p>
-
-            <div className="ingredients-box">
-              <h4>Required Ingredients:</h4>
-              <ul className="ingredients-list">
-                <li><span>•</span> Green Noodles (Cendol)</li>
-                <li><span>•</span> Slow-cooked Palm Sugar Syrup</li>
-                <li><span>•</span> Braised Red Beans</li>
-                <li><span>•</span> Sticky Glutinous Rice (Pulut)</li>
-                <li><span>•</span> Clean Block of Ice</li>
-                <li><span>•</span> Fresh Coconut Milk</li>
-              </ul>
-            </div>
-
-            <div className="preparation-steps">
-              <h4>Preparation Method:</h4>
-              <ol className="steps-list">
-                <li>
-                  <div className="step-num">1</div>
-                  <div className="step-text">Put a generous amount of green pandan noodles into a traditional ceramic bowl.</div>
-                </li>
-                <li>
-                  <div className="step-num">2</div>
-                  <div className="step-text">Add sweet red beans, sticky glutinous rice (pulut), or a blend of both depending on preference.</div>
-                </li>
-                <li>
-                  <div className="step-num">3</div>
-                  <div className="step-text">Shave pure block ice into a fine mound directly over the ingredients.</div>
-                </li>
-                <li>
-                  <div className="step-num">4</div>
-                  <div className="step-text">Pour fresh coconut milk around the ice heap and add a thick drizzle of gula melaka palm syrup over the peak.</div>
-                </li>
-                <li>
-                  <div className="step-num">5</div>
-                  <div className="step-text">Serve immediately while freezing cold.</div>
-                </li>
-              </ol>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -411,145 +387,10 @@ export default function Menu() {
         .loading-line.desc { width: 90%; height: 50px; }
         .loading-line.price { width: 30%; }
 
-        /* Recipe Card */
-        .recipe-showcase-section {
-          padding: 6rem 8%;
-          background-color: var(--cream-light);
-        }
-        .recipe-card-wrapper {
-          max-width: 1000px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr 1.2fr;
-          overflow: hidden;
-        }
-        .recipe-image-side {
-          position: relative;
-        }
-        .recipe-photo {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          min-height: 400px;
-        }
-        .recipe-tag {
-          position: absolute;
-          bottom: 20px;
-          left: 20px;
-          right: 20px;
-          background: rgba(15, 15, 15, 0.85);
-          color: var(--text-light);
-          padding: 0.8rem 1.2rem;
-          border-radius: var(--radius-sm);
-          font-size: 0.85rem;
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          border-left: 3px solid var(--amber-light);
-        }
-        .recipe-content-side {
-          padding: 3.5rem;
-        }
-        .recipe-subtitle {
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          color: var(--primary-light);
-          font-weight: 700;
-          display: block;
-          margin-bottom: 0.5rem;
-        }
-        .recipe-content-side h2 {
-          font-family: var(--font-serif);
-          font-size: 2.8rem;
-          color: var(--amber);
-          margin-bottom: 1rem;
-          line-height: 1.1;
-        }
-        .recipe-intro {
-          font-style: italic;
-          color: var(--text-muted);
-          margin-bottom: 2rem;
-        }
-        
-        .ingredients-box {
-          background: rgba(255,255,255,0.6);
-          border-radius: var(--radius-sm);
-          padding: 1.5rem;
-          border: 1px solid var(--border-color);
-          margin-bottom: 2.5rem;
-        }
-        .ingredients-box h4 {
-          font-family: var(--font-serif);
-          font-size: 1.2rem;
-          color: var(--amber);
-          margin-bottom: 0.75rem;
-        }
-        .ingredients-list {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.5rem;
-          list-style: none;
-        }
-        .ingredients-list li {
-          font-size: 0.95rem;
-          font-weight: 500;
-          display: flex;
-          gap: 0.5rem;
-          color: var(--text-dark);
-        }
-        .ingredients-list li span {
-          color: var(--primary-light);
-          font-weight: 700;
-        }
-
-        .preparation-steps h4 {
-          font-family: var(--font-serif);
-          font-size: 1.2rem;
-          color: var(--amber);
-          margin-bottom: 1.5rem;
-        }
-        .steps-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-        .steps-list li {
-          display: flex;
-          gap: 1.2rem;
-          align-items: flex-start;
-        }
-        .step-num {
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
-          background: var(--amber);
-          color: #fff;
-          font-size: 0.85rem;
-          font-weight: 700;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-        .step-text {
-          font-size: 0.95rem;
-          color: var(--text-dark);
-          line-height: 1.5;
-        }
-
         /* Responsive */
         @media (max-width: 900px) {
           .menu-grid {
             grid-template-columns: 1fr;
-          }
-          .recipe-card-wrapper {
-            grid-template-columns: 1fr;
-          }
-          .recipe-content-side {
-            padding: 2rem;
           }
         }
       `}</style>

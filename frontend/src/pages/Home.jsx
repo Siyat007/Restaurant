@@ -50,7 +50,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-image-container">
-          <img src="/images/image5.jpg" alt="Ansari's Famous Cendol Storefront" className="hero-image" />
+          <img src="/images/shop-pic.png" alt="Ansari's Famous Cendol Storefront" className="hero-image" />
           <div className="hero-floating-card glass-card">
             <div className="stars">
               <Star size={16} fill="currentColor" />

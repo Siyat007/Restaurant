@@ -160,7 +160,7 @@ export default function OurStory() {
       <section className="secret-showcase">
         <div className="secret-grid">
           <div className="secret-image">
-            <img src="/images/image1.jpg" alt="Ansari preparing Cendol" className="heritage-photo" />
+            <img src="/images/image1.jpg" alt="Ansari preparing Cendol" className="heritage-photo heritage-photo-portrait" />
           </div>
           <div className="secret-content">
             <h2>The Secret of Gula Melaka</h2>
@@ -255,6 +255,13 @@ export default function OurStory() {
           border: 4px solid #fff;
           object-fit: cover;
           max-height: 400px;
+        }
+        .heritage-photo-portrait {
+          display: block;
+          width: min(100%, 360px);
+          max-height: none;
+          margin: 0 auto;
+          object-fit: contain;
         }
         .image-caption {
           display: block;

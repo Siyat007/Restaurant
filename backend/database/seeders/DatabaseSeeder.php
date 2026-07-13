@@ -15,60 +15,93 @@ class DatabaseSeeder extends Seeder
     {
         // Seed Menu Items
         MenuItem::create([
-            'name' => 'Cendol Biasa (Traditional Cendol)',
-            'description' => 'The standard heritage bowl. A refreshing mix of fresh pandan green noodles, creamy coconut milk, shaved ice, and our signature Gula Melaka syrup.',
-            'price' => 3.50,
+            'name' => 'Biasa',
+            'description' => 'Classic bowl of Ansari Famous Cendol.',
+            'price' => 2.00,
             'category' => 'cendol',
             'tag' => 'Classic',
             'badge' => 'Original'
         ]);
 
         MenuItem::create([
-            'name' => 'Cendol Kacang (Red Beans)',
-            'description' => 'Our traditional cendol served with a generous topping of slow-cooked, sweetened red kidney beans adding a soft, nutty texture.',
-            'price' => 4.00,
+            'name' => 'Berkacang',
+            'description' => 'Cendol served with red beans.',
+            'price' => 2.20,
             'category' => 'cendol',
             'tag' => 'Popular'
         ]);
 
         MenuItem::create([
-            'name' => 'Cendol Pulut (Glutinous Rice)',
-            'description' => 'Features a scoop of sticky, perfectly steamed glutinous rice (pulut), making the dessert richer and extra filling.',
-            'price' => 4.20,
+            'name' => 'Berjagung',
+            'description' => 'Cendol served with sweet corn.',
+            'price' => 2.20,
+            'category' => 'cendol'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Berpulut',
+            'description' => 'Cendol served with glutinous rice.',
+            'price' => 2.60,
             'category' => 'cendol',
             'tag' => 'Heritage'
         ]);
 
         MenuItem::create([
-            'name' => 'Cendol Special (Red Beans & Pulut)',
-            'description' => 'The ultimate bowl. A double-loaded combination featuring both sweet red kidney beans and sticky glutinous rice (pulut).',
-            'price' => 4.80,
-            'category' => 'cendol',
-            'tag' => 'Highly Recommended',
-            'badge' => 'Best Seller'
+            'name' => 'Kacang & Jagung',
+            'description' => 'Cendol served with red beans and sweet corn.',
+            'price' => 2.40,
+            'category' => 'cendol'
         ]);
 
         MenuItem::create([
-            'name' => 'Pasembur Traditional (Rojak)',
-            'description' => 'Famous Malaysian Indian street salad. A crispy heap of shredded cucumber, turnip, bean curd, and potato fritters topped with a warm, sweet, and spicy peanut gravy.',
-            'price' => 7.00,
+            'name' => 'Kacang & Pulut',
+            'description' => 'Cendol served with red beans and glutinous rice.',
+            'price' => 2.80,
+            'category' => 'cendol'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Kacang & Pulut & Jagung (SP)',
+            'description' => 'Special cendol with red beans, glutinous rice, and sweet corn.',
+            'price' => 3.00,
+            'category' => 'cendol',
+            'badge' => 'Special'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Take Away Cendol Kecil',
+            'description' => 'Small packed cendol for take away.',
+            'price' => 2.50,
+            'category' => 'takeaway'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Take Away Cendol Berkacang',
+            'description' => 'Packed cendol with red beans for take away.',
+            'price' => 2.70,
+            'category' => 'takeaway'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Take Away Cendol Besar',
+            'description' => 'Large packed cendol for take away.',
+            'price' => 4.40,
+            'category' => 'takeaway'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Take Away Cendol Besar Berkacang',
+            'description' => 'Large packed cendol with red beans for take away.',
+            'price' => 4.70,
+            'category' => 'takeaway'
+        ]);
+
+        MenuItem::create([
+            'name' => 'Pasembor',
+            'description' => 'Pasembor served packed or plated.',
+            'price' => 4.70,
             'category' => 'savory',
             'tag' => 'Local Favorite'
-        ]);
-
-        MenuItem::create([
-            'name' => 'Pasembur Special (With Squid)',
-            'description' => 'Our traditional Pasembur loaded with premium boiled egg, crispy prawn fritters, and marinated honey-spiced cuttlefish.',
-            'price' => 9.00,
-            'category' => 'savory',
-            'badge' => 'Premium'
-        ]);
-
-        MenuItem::create([
-            'name' => 'Ais Kacang (ABC)',
-            'description' => 'A traditional Malaysian shaved ice mountain topped with sweet cream corn, red beans, grass jelly, rose syrup, and evaporated milk.',
-            'price' => 5.00,
-            'category' => 'dessert'
         ]);
 
         // Seed Branches
@@ -76,36 +109,6 @@ class DatabaseSeeder extends Seeder
             'city' => 'Taiping Flagship',
             'address' => 'Jalan Taming Sari (Main Road), 34000 Taiping, Perak',
             'status' => 'Active'
-        ]);
-
-        Branch::create([
-            'city' => 'Kuala Lumpur',
-            'address' => 'Proposed branch: Golden Triangle district',
-            'status' => 'Planned'
-        ]);
-
-        Branch::create([
-            'city' => 'Penang',
-            'address' => 'Proposed branch: Georgetown Heritage Zone',
-            'status' => 'Planned'
-        ]);
-
-        Branch::create([
-            'city' => 'Johor Bahru',
-            'address' => 'Proposed branch: JB Central',
-            'status' => 'Planned'
-        ]);
-
-        Branch::create([
-            'city' => 'Alor Setar',
-            'address' => 'Proposed branch: City Center',
-            'status' => 'Planned'
-        ]);
-
-        Branch::create([
-            'city' => 'Ipoh',
-            'address' => 'Proposed branch: Ipoh Old Town',
-            'status' => 'Planned'
         ]);
     }
 }

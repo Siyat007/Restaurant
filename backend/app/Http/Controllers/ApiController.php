@@ -24,7 +24,7 @@ class ApiController extends Controller
      */
     public function getBranches()
     {
-        $branches = Branch::all();
+        $branches = Branch::where('status', 'Active')->get();
         return response()->json($branches);
     }
 

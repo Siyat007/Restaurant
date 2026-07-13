@@ -3,30 +3,67 @@ import { ChevronLeft, ChevronRight, Share2, Award, Heart } from 'lucide-react';
 
 const GALLERY_SLIDES = [
   {
-    image: '/images/image1.jpg',
-    title: 'Handcrafting the Legacy',
-    description: 'Ansari Abdul Rahman scooping the rich palm sugar syrup at the iconic ice shaving station, following secret techniques handed down by his father.'
+    image: '/images/afc-shop-pic.png',
+    title: 'Ansari Famous Cendol Shop',
+    description: 'The storefront and service counter where customers gather for the signature Taiping cendol experience.'
   },
   {
-    image: '/images/image2.jpg',
-    title: 'The Signature Heritage Bowl',
-    description: 'A close-up of a perfect serving: soft bright green rice noodles, mountain of shaved ice, coconut milk, and caramel-like Gula Melaka.'
+    image: '/images/afc-customers.png',
+    title: 'Customers at the Shop',
+    description: 'Guests enjoying the lively atmosphere around Ansari Famous Cendol.'
   },
   {
-    image: '/images/image3.jpg',
-    title: 'Street Heritage Illustration',
-    description: 'Original pen-and-ink artwork by Ng Kok Hong of Studio Ayer, capturing the timeless experience of Abdul Kader serving customers in the 1940s.'
+    image: '/images/afc-customerss.png',
+    title: 'A Busy Cendol Stop',
+    description: 'A look at the crowd and everyday customer moments at the shop.'
   },
   {
-    image: '/images/image4.jpg',
-    title: 'Generations of Smiles',
-    description: 'Two young local children enjoying their bowls of cold Cendol, showing how this street food favorite continues to unite generations.'
+    image: '/images/afc-happy-customers.png',
+    title: 'Happy Customers',
+    description: 'Visitors sharing a cheerful moment after enjoying their cendol.'
   },
   {
-    image: '/images/image5.jpg',
-    title: 'The Jalan Taming Sari Shopfront',
-    description: 'The historic flagship shop of Ansari Famous Cendol in Taiping, Perak, decorated with the Malaysian flag and welcoming guests daily.'
+    image: '/images/afc-customer.jpg',
+    title: 'Customer Moment',
+    description: 'A captured visit from the Ansari Famous Cendol customer gallery.'
+  },
+  {
+    image: '/images/afc-2-cust.jpg',
+    title: 'Cendol Together',
+    description: 'Two customers enjoying the shop experience together.'
+  },
+  {
+    image: '/images/afc-image4.jpg',
+    title: 'Shop Gallery Photo',
+    description: 'A photo from the AFC shop collection.'
+  },
+  {
+    image: '/images/afc-screenshot-1.png',
+    title: 'AFC Photo Collection',
+    description: 'A selected image from the AFC shop photos folder.'
+  },
+  {
+    image: '/images/afc-screenshot-2.png',
+    title: 'AFC Gallery Highlight',
+    description: 'Another highlight from the AFC shop photo collection.'
+  },
+  {
+    image: '/images/afc-screenshot-3.png',
+    title: 'AFC Customer Gallery',
+    description: 'A customer-focused image from the AFC shop photos folder.'
   }
+];
+
+const REPUTATION_VIDEOS = [
+  { id: 'Fp9Rq_QhnbU', title: 'Ansari Famous Cendol Reputation Video 1' },
+  { id: '9sA_P6GMHVU', title: 'Ansari Famous Cendol Reputation Video 2' },
+  { id: '1n59qWD2vrI', title: 'Ansari Famous Cendol Reputation Video 3' },
+  { id: 'H6TTUvmPrsw', title: 'Ansari Famous Cendol Reputation Video 4' },
+  { id: 'HMqaMcnhpPo', title: 'Ansari Famous Cendol Reputation Video 5' },
+  { id: 'Vv912w-Qveg', title: 'Ansari Famous Cendol Reputation Video 6' },
+  { id: 'ijA_vyLKLbg', title: 'Ansari Famous Cendol Reputation Video 7' },
+  { id: 'E_hzRn8yzxM', title: 'Ansari Famous Cendol Reputation Video 8' },
+  { id: 'ObjZ9GeoaJ8', title: 'Ansari Famous Cendol Reputation Video 9' }
 ];
 
 const SPECIAL_THANKS = [
@@ -117,6 +154,31 @@ export default function Media() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Reputation Videos Section */}
+      <section className="videos-section">
+        <div className="section-header">
+          <span className="section-subtitle">Restaurant Reputation</span>
+          <h2 className="section-title">Featured YouTube Videos</h2>
+          <p className="section-desc">
+            Watch customer stories and media features that showcase the reputation of Ansari's Famous Cendol.
+          </p>
+        </div>
+
+        <div className="videos-grid">
+          {REPUTATION_VIDEOS.map((video) => (
+            <div key={video.id} className="video-card glass-card">
+              <iframe
+                src={`https://www.youtube.com/embed/${video.id}`}
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -265,10 +327,34 @@ export default function Media() {
           border-radius: 10px;
         }
 
+        /* Videos Section */
+        .videos-section {
+          padding: 5rem 8% 6rem;
+          background-color: var(--cream-light);
+        }
+        .videos-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+          max-width: 1180px;
+          margin: 3rem auto 0;
+        }
+        .video-card {
+          overflow: hidden;
+          background: #000;
+          aspect-ratio: 16 / 9;
+        }
+        .video-card iframe {
+          width: 100%;
+          height: 100%;
+          display: block;
+          border: 0;
+        }
+
         /* Patrons Section */
         .patrons-section {
           padding: 6rem 8%;
-          background-color: var(--cream-light);
+          background-color: #fff;
         }
         .heritage-project-title {
           display: inline-flex;
@@ -314,6 +400,9 @@ export default function Media() {
 
         /* Responsive */
         @media (max-width: 1024px) {
+          .videos-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
           .patrons-grid {
             grid-template-columns: repeat(3, 1fr);
           }
@@ -327,6 +416,9 @@ export default function Media() {
           }
         }
         @media (max-width: 480px) {
+          .videos-grid {
+            grid-template-columns: 1fr;
+          }
           .patrons-grid {
             grid-template-columns: 1fr;
           }

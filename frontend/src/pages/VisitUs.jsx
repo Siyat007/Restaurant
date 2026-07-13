@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Clock, Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const FALLBACK_BRANCHES = [
-  { id: 1, city: 'Taiping Flagship', address: 'Jalan Taming Sari (Main Road), 34000 Taiping, Perak', status: 'Active' },
-  { id: 2, city: 'Kuala Lumpur', address: 'Proposed branch: Golden Triangle district', status: 'Planned' },
-  { id: 3, city: 'Penang', address: 'Proposed branch: Georgetown Heritage Zone', status: 'Planned' },
-  { id: 4, city: 'Johor Bahru', address: 'Proposed branch: JB Central', status: 'Planned' },
-  { id: 5, city: 'Alor Setar', address: 'Proposed branch: City Center', status: 'Planned' },
-  { id: 6, city: 'Ipoh', address: 'Proposed branch: Ipoh Old Town', status: 'Planned' }
+  { id: 1, city: 'Taiping Flagship', address: 'Jalan Taming Sari (Main Road), 34000 Taiping, Perak', status: 'Active' }
 ];
 
 export default function VisitUs() {
@@ -234,12 +229,12 @@ export default function VisitUs() {
             </form>
           </div>
 
-          {/* Expansion Targets */}
+          {/* Active Branch */}
           <div className="branches-list-side">
-            <span className="section-subtitle">The Grand Ambition</span>
-            <h3>Future Branches</h3>
+            <span className="section-subtitle">Current Location</span>
+            <h3>Active Branch</h3>
             <p className="branches-intro">
-              Ansari Abdul Rahman's long-held ambition is to expand the authentic Taiping Cendol flavor to major hubs.
+              Visit our active flagship branch in Taiping for the original Ansari Famous Cendol experience.
             </p>
 
             <div className="branches-grid">
