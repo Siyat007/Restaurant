@@ -8,6 +8,8 @@ import OurStory from './pages/OurStory';
 import Menu from './pages/Menu';
 import VisitUs from './pages/VisitUs';
 import Media from './pages/Media';
+import Memories from './pages/Memories';
+import AdminMemories from './pages/AdminMemories';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -73,6 +75,11 @@ function Navigation() {
               Media
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/memories" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+              Memories
+            </NavLink>
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -115,6 +122,11 @@ function Navigation() {
           <li>
             <NavLink to="/media" className="drawer-link" onClick={closeMobileMenu}>
               Media
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/memories" className="drawer-link" onClick={closeMobileMenu}>
+              Memories
             </NavLink>
           </li>
         </ul>
@@ -194,6 +206,8 @@ export default function App() {
             <Route path="/menu" element={<Menu />} />
             <Route path="/visit" element={<VisitUs />} />
             <Route path="/media" element={<Media />} />
+            <Route path="/memories" element={<Memories />} />
+            <Route path="/admin/memories" element={<AdminMemories />} />
           </Routes>
         </main>
 
@@ -229,11 +243,11 @@ export default function App() {
               </div>
               <div className="footer-contact-item">
                 <Clock size={20} />
-                <span>Open Daily: 10:00 AM - 6:30 PM</span>
+                <span>Open Daily: 10:00 AM - 6:30 PM (Fri 12:00-2:30 PM closed)</span>
               </div>
               <div className="footer-contact-item">
                 <Phone size={20} />
-                <span>+60 5-808 2004 (Taiping Main)</span>
+                <span>012-562 9440</span>
               </div>
             </div>
           </div>
