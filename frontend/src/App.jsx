@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
-import { Menu as MenuIcon, X, Phone, MapPin, Clock, Mail, ShieldAlert } from 'lucide-react';
+import { Menu as MenuIcon, X, Phone, MapPin, Clock } from 'lucide-react';
 
 // Import Pages
 import Home from './pages/Home';
@@ -202,11 +202,11 @@ export default function App() {
             <div className="footer-brand">
               <h3>Ansari's Famous Cendol</h3>
               <p>
-                Serving the original Taiping Cendol. A rich, refreshing family trade
-                perfected over three generations since 1940.
+                A family-run Indian-Muslim (Mamak) stall serving refreshing, traditional
+                cendol to Taiping locals and visitors.
               </p>
               <div className="footer-brand-legacy">
-                Est. 1940 • Street Heritage Certified
+                Since 1940 • A Taiping local favourite
               </div>
             </div>
 
@@ -225,7 +225,7 @@ export default function App() {
               <h4>Contact Us</h4>
               <div className="footer-contact-item">
                 <MapPin size={20} />
-                <span>Jalan Taming Sari (Main Road), 34000 Taiping, Perak, Malaysia</span>
+                <span>92, Jalan Barrack, 34000 Taiping, Perak, Malaysia</span>
               </div>
               <div className="footer-contact-item">
                 <Clock size={20} />
@@ -240,7 +240,7 @@ export default function App() {
 
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} Ansari's Famous Cendol. All Rights Reserved.</p>
-            <p>Developed with Passion for Malaysian Culinary Heritage.</p>
+            <p>Made for the Taiping community.</p>
           </div>
         </footer>
       </div>

@@ -10,8 +10,7 @@ export default function OurStory() {
           <span className="section-subtitle">Since 1940</span>
           <h1>Our Story</h1>
           <p className="hero-lead">
-            Discover the journey of a simple street cart that introduced Cendol to Taiping,
-            growing into a timeless culinary legacy preserved for three generations.
+            A family-run Indian-Muslim (Mamak) cendol stall that has been part of Taiping life for generations.
           </p>
         </div>
       </section>
@@ -20,30 +19,23 @@ export default function OurStory() {
       <section className="history-chapter">
         <div className="chapter-grid">
           <div className="chapter-text">
-            <h2>The Birth of Taiping Cendol</h2>
+            <h2>A Taiping Family Tradition</h2>
             <p>
-              In the early 1940s, a young merchant named <strong>P.M. Abdul Kader</strong> arrived in the town of 
-              Taiping, Perak, from India. Bringing along family traditions and a passion for street cooking, he decided 
-              to introduce a refreshing sweet dessert to the warm tropical town: <strong>Cendol</strong>.
+              Ansari's Famous Cendol began as a humble family street-food business in Taiping in the 1940s. Its Indian-Muslim roots, familiar flavours, and straightforward service have made it a local favourite across generations.
             </p>
             <p>
-              Operating a modest cart along <strong>Jalan Taming Sari</strong> (then known as Main Road) near the historic 
-              Bismillah Restaurant, his stall quickly became a hub for locals seeking relief from the heat. In those 
-              pioneering days, a fresh bowl of hand-shaved ice, coconut milk, and green rice-flour noodles cost 
-              merely <strong>one to three cents</strong>.
+              From its Taiping home at <strong>92, Jalan Barrack</strong>, the stall continues to offer a simple place to cool down, catch up, and enjoy traditional cendol. It is the kind of everyday stop that locals remember and visitors are glad to discover.
             </p>
             <div className="story-quote glass-card">
               <Star size={24} className="quote-icon" />
               <p>
-                "As the business operated near the Bismillah Restaurant, it became famously known in Perak as 
-                <strong> Bismillah Cendol</strong> or simply <strong>Taiping Cendol</strong>. It was here that Taiping's 
-                reputation as a cendol capital was born."
+                "The cendol tastes exactly like I remember from childhood."
               </p>
             </div>
           </div>
           <div className="chapter-image">
             <img src="/images/image3.jpg" alt="Vintage Drawing of P.M. Abdul Kader Stall" className="heritage-photo" />
-            <span className="image-caption">Pen-and-ink illustration depicting the original street service.</span>
+            <span className="image-caption">A glimpse of the family street-food tradition behind every bowl.</span>
           </div>
         </div>
       </section>
@@ -52,9 +44,9 @@ export default function OurStory() {
       <section className="timeline-section">
         <div className="section-header">
           <span className="section-subtitle">Our Journey</span>
-          <h2 className="section-title">Timeline of Legacy</h2>
+          <h2 className="section-title">Generations of Familiar Flavour</h2>
           <p className="section-desc">
-            How a three-generation commitment to quality maintained the same authentic recipe for over 80 years.
+            A long-standing family recipe, prepared simply for the Taiping community.
           </p>
         </div>
 
@@ -66,8 +58,7 @@ export default function OurStory() {
               <span className="timeline-date">1940s</span>
               <h3>The Arrival</h3>
               <p>
-                P.M. Abdul Kader introduces Cendol to Taiping, Perak. Using wooden hand shavers and fresh pandan leaves, 
-                he serves bowl-by-bowl to travellers and residents on Jalan Taming Sari.
+                The family starts serving traditional cendol in Taiping, building a following one bowl at a time.
               </p>
             </div>
           </div>
@@ -77,11 +68,9 @@ export default function OurStory() {
             <div className="timeline-dot"><History size={16} /></div>
             <div className="timeline-content glass-card">
               <span className="timeline-date">1970s</span>
-              <h3>Perfecting the Secret</h3>
+              <h3>Keeping It Familiar</h3>
               <p>
-                His son, <strong>S.M. Abdul Rahman</strong>, takes over the business. He standardizes the cooking 
-                processes and refines the mixture of brown sugars, introducing the premium Gula Melaka syrup formula 
-                that preserves quality across batches.
+                The next generation carries on the family recipe and the small-stall spirit that regulars know.
               </p>
             </div>
           </div>
@@ -91,10 +80,9 @@ export default function OurStory() {
             <div className="timeline-dot"><History size={16} /></div>
             <div className="timeline-content glass-card">
               <span className="timeline-date">2000s</span>
-              <h3>Street Heritage Recognition</h3>
+              <h3>Growing With the Community</h3>
               <p>
-                On 27th November 2004, the restaurant is celebrated in "A Path to Street Heritage", supported by the 
-                Ministry of Tourism Malaysia and Perak State authorities, cementing its title as "Ansari's Famous Cendol".
+                Word of mouth brings families, friends, and visitors back for a refreshing, affordable bowl.
               </p>
             </div>
           </div>
@@ -104,11 +92,9 @@ export default function OurStory() {
             <div className="timeline-dot"><History size={16} /></div>
             <div className="timeline-content glass-card">
               <span className="timeline-date">Present Day</span>
-              <h3>The Visionary Growth</h3>
+              <h3>Still Serving Taiping</h3>
               <p>
-                Now managed by <strong>Ansari Abdul Rahman</strong>. While keeping the main Taiping stall's authenticity, 
-                he pursues an ambition to share this taste across Malaysia with planned branches in Kuala Lumpur, 
-                Penang, Johor Bahru, Alor Setar, and Ipoh.
+                The family keeps the focus on the Taiping stall: traditional cendol, honest portions, and familiar faces.
               </p>
             </div>
           </div>
@@ -118,10 +104,10 @@ export default function OurStory() {
       {/* The Family Legacy Tree */}
       <section className="family-legacy-section">
         <div className="section-header">
-          <span className="section-subtitle">Heritage Custodians</span>
+          <span className="section-subtitle">The Family Behind the Stall</span>
           <h2 className="section-title">The Family Lineage</h2>
           <p className="section-desc">
-            Passed down from grandfather, to father, to son. The hands that shaped the history of Taiping Cendol.
+            A family tradition passed from one generation to the next.
           </p>
         </div>
 
@@ -131,27 +117,27 @@ export default function OurStory() {
             <span className="node-title">The Initiator</span>
             <h3>P.M. Abdul Kader</h3>
             <span className="node-period">1940s - 1970s</span>
-            <p>Brought the craft of Cendol from India, creating the foundation of Jalan Taming Sari's street icon.</p>
+            <p>Helped establish the family tradition of serving cendol in Taiping.</p>
           </div>
 
           <div className="tree-connector"></div>
 
           <div className="tree-node glass-card">
             <div className="node-icon"><User size={24} /></div>
-            <span className="node-title">The Refiner</span>
+            <span className="node-title">The Next Generation</span>
             <h3>S.M. Abdul Rahman</h3>
             <span className="node-period">1970s - 2000s</span>
-            <p>Formulated the signature Gula Melaka sugar blend, ensuring long-term consistency.</p>
+            <p>Continued the traditional recipe and the family-run way of serving customers.</p>
           </div>
 
           <div className="tree-connector"></div>
 
           <div className="tree-node glass-card highlight-node">
             <div className="node-icon"><User size={24} /></div>
-            <span className="node-title">The Modern Guardian</span>
+            <span className="node-title">Keeping the Tradition Going</span>
             <h3>Ansari Abdul Rahman</h3>
             <span className="node-period">2000s - Present</span>
-            <p>Standardized the brand name and expands the legacy to Malaysia's main urban hubs.</p>
+            <p>Keeps the Taiping stall welcoming for regulars and first-time visitors alike.</p>
           </div>
         </div>
       </section>
@@ -163,21 +149,18 @@ export default function OurStory() {
             <img src="/images/image1.jpg" alt="Ansari preparing Cendol" className="heritage-photo heritage-photo-portrait" />
           </div>
           <div className="secret-content">
-            <h2>The Secret of Gula Melaka</h2>
+            <h2>Made the Traditional Way</h2>
             <p>
-              Many ask why Ansari's Famous Cendol tastes distinct from standard commercial varieties. The answer lies 
-              in our syrup, prepared in a special way handed down across decades.
+              The taste people know comes from a family recipe and a simple, careful preparation passed down over time.
             </p>
             <p>
-              Instead of standard processed white sugar, we blend authentic local palm sugar (Gula Melaka) with 
-              two other varieties of brown sugar. Slowly heated in copper vats and double-filtered, this molasses-like 
-              liquid delivers a rich, earthy sweetness that never feels overwhelming, clinging perfectly to the shaved ice.
+              Green cendol, shaved ice, coconut milk, and palm sugar come together in the familiar balance that makes a hot day in Taiping feel a little easier.
             </p>
             <div className="heritage-seal">
               <Award size={36} />
               <div>
-                <h4>Certified Street Heritage</h4>
-                <p>Preserving Traditional Hand-Crafted Production Methods Since 1940.</p>
+                <h4>Family-Run Since 1940</h4>
+                <p>Traditional cendol served simply for the Taiping community.</p>
               </div>
             </div>
           </div>

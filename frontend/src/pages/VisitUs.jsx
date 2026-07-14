@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Clock, Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const FALLBACK_BRANCHES = [
-  { id: 1, city: 'Taiping Flagship', address: 'Jalan Taming Sari (Main Road), 34000 Taiping, Perak', status: 'Active' }
+  { id: 1, city: 'Taiping Stall', address: '92, Jalan Barrack, 34000 Taiping, Perak, Malaysia', status: 'Active' }
 ];
 
 export default function VisitUs() {
@@ -75,8 +75,7 @@ export default function VisitUs() {
           <span className="section-subtitle">Find Us in Perak</span>
           <h1>Visit Us</h1>
           <p>
-            Come visit our historical home in Taiping. Experience the vintage atmosphere 
-            where three generations of customers have enjoyed fresh street heritage.
+            Visit our family-run cendol stall in Taiping for a simple, refreshing bowl or an easy takeaway.
           </p>
         </div>
       </section>
@@ -85,10 +84,10 @@ export default function VisitUs() {
       <section className="main-stall-section">
         <div className="main-stall-grid">
           <div className="stall-info-card glass-card">
-            <span className="info-card-badge">Main Flagship</span>
+            <span className="info-card-badge">Family-Run Stall</span>
             <h2>Taiping Stall</h2>
             <p className="stall-desc">
-              Located near the historic Bismillah Restaurant along Jalan Taming Sari, right in the heart of Taiping heritage trail.
+              Find us at Jalan Barrack, where locals and visitors stop by for traditional cendol at an affordable price.
             </p>
 
             <div className="info-items">
@@ -96,7 +95,7 @@ export default function VisitUs() {
                 <MapPin size={24} />
                 <div>
                   <h4>Address</h4>
-                  <p>Jalan Taming Sari, 34000 Taiping, Perak, Malaysia</p>
+                  <p>92, Jalan Barrack, 34000 Taiping, Perak, Malaysia</p>
                 </div>
               </div>
               <div className="info-item">
@@ -104,13 +103,13 @@ export default function VisitUs() {
                 <div>
                   <h4>Operating Hours</h4>
                   <p>Open Daily: 10:00 AM - 6:30 PM</p>
-                  <span className="subtext">* Closed on major national public holidays</span>
+                  <span className="subtext">* Hours can occasionally vary; please call ahead if you are making a special trip.</span>
                 </div>
               </div>
               <div className="info-item">
                 <Phone size={24} />
                 <div>
-                  <h4>Phone Inquiries</h4>
+                  <h4>Phone or WhatsApp</h4>
                   <p>+60 5-808 2004</p>
                 </div>
               </div>
@@ -123,7 +122,7 @@ export default function VisitUs() {
               <div className="map-overlay">
                 <div className="map-pin-bubble">
                   <strong>Ansari's Famous Cendol</strong>
-                  <p>Jalan Taming Sari, Taiping</p>
+                  <p>92, Jalan Barrack, Taiping</p>
                 </div>
               </div>
               {/* Fallback clean design map rendering */}
@@ -142,13 +141,21 @@ export default function VisitUs() {
         </div>
       </section>
 
+      <section className="main-stall-section">
+        <div className="stall-info-card glass-card" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <span className="info-card-badge">Before You Visit</span>
+          <h2>Good to Know</h2>
+          <p className="stall-desc">Seating is limited and available on a first-come, first-served basis. At busy times there may be a short wait, and takeaway orders are common. Popular choices, especially Cendol Pulut, can sell out before closing. Street parking is subject to availability nearby.</p>
+        </div>
+      </section>
+
       {/* Inquiry Form & Branches Grid */}
       <section className="inquiries-branches-section">
         <div className="inquiry-grid">
           {/* Contact Form */}
           <div className="contact-form-side glass-card">
             <h3>Send Us a Message</h3>
-            <p>Have questions about event bookings, catering services, or our heritage story? Write to us!</p>
+            <p>For general questions, directions, or visitor information, send us a message. For a quicker reply, phone or WhatsApp the stall.</p>
 
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
@@ -186,7 +193,7 @@ export default function VisitUs() {
                   value={formData.subject} 
                   onChange={handleInputChange} 
                   required 
-                  placeholder="e.g. Catering Enquiry"
+                  placeholder="e.g. Opening hours or directions"
                 />
               </div>
 
@@ -204,15 +211,15 @@ export default function VisitUs() {
               </div>
 
               <button type="submit" className="btn-primary form-submit-btn" disabled={loading}>
-                {loading ? 'Sending...' : 'Send Inquiry'} <Send size={16} />
+                {loading ? 'Sending...' : 'Send Message'} <Send size={16} />
               </button>
 
               {success && (
                 <div className="alert alert-success animate-fade">
                   <CheckCircle2 size={20} />
                   <div>
-                    <strong>Inquiry Sent Successfully!</strong>
-                    <p>Thank you. We have saved your message and will respond shortly.</p>
+                    <strong>Message Sent</strong>
+                    <p>Thank you. We will get back to you when we can.</p>
                   </div>
                 </div>
               )}
@@ -232,9 +239,9 @@ export default function VisitUs() {
           {/* Active Branch */}
           <div className="branches-list-side">
             <span className="section-subtitle">Current Location</span>
-            <h3>Active Branch</h3>
+            <h3>Our Taiping Stall</h3>
             <p className="branches-intro">
-              Visit our active flagship branch in Taiping for the original Ansari Famous Cendol experience.
+              Our one family-run location is ready for quick visits, a cool bowl, or takeaway.
             </p>
 
             <div className="branches-grid">

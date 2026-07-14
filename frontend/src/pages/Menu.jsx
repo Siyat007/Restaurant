@@ -32,7 +32,7 @@ const FALLBACK_MENU = [
     description: 'Cendol served with glutinous rice.',
     price: 2.60,
     category: 'cendol',
-    tag: 'Heritage'
+    tag: 'Popular'
   },
   {
     id: 5,
@@ -128,11 +128,9 @@ export default function Menu() {
       <section className="menu-hero">
         <div className="menu-hero-content">
           <span className="section-subtitle">Freshly Served Daily</span>
-          <h1>Our Heritage Menu</h1>
+          <h1>Our Menu</h1>
           <p>
-            Taste the recipes that defined Taiping's street heritage. Enjoy our signature 
-            iced Cendol variations alongside traditional Pasembur, prepared with fresh 
-            ingredients every morning.
+            Choose a classic bowl, add your favourite topping, or take it away. Traditional cendol and Pasembor, served simply in Taiping.
           </p>
         </div>
       </section>
@@ -170,7 +168,7 @@ export default function Menu() {
         {error && (
           <div className="api-notice">
             <span className="notice-badge">Offline Mode</span>
-            <p>Displaying authentic local menu copy from heritage records. The Laravel database server is offline.</p>
+            <p>Showing the stall menu while the menu service is unavailable.</p>
           </div>
         )}
 

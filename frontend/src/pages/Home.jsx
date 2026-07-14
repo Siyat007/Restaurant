@@ -32,13 +32,13 @@ export default function Home() {
             <Award size={16} /> Three Generations Since 1940
           </div>
           <h1>
-            A Legacy in <br />
-            <span>Every Single Bowl</span>
+            Taiping's Favourite Cendol <br />
+            <span>Since 1940</span>
           </h1>
           <p>
-            Experience the original Taiping Cendol. Crafted from a secret family recipe 
-            passed down through generations, combining fresh pandan noodles, creamy coconut 
-            milk, and the rich, authentic sweetness of Gula Melaka.
+            A family-run Indian-Muslim (Mamak) stall serving simple, refreshing cendol
+            with a traditional recipe passed down through generations. Drop by for a cool
+            bowl, a quick chat, or an easy takeaway in Taiping.
           </p>
           <div className="hero-actions">
             <Link to="/menu" className="btn-primary">
@@ -59,8 +59,8 @@ export default function Home() {
               <Star size={16} fill="currentColor" />
               <Star size={16} fill="currentColor" />
             </div>
-            <p>"Taiping's legendary street dessert since the 1940s. A must-visit!"</p>
-            <span>- Malaysian Street Heritage Council</span>
+            <p>"A must-visit whenever I'm in Taiping."</p>
+            <span>— Customer experience</span>
           </div>
         </div>
       </section>
@@ -68,10 +68,10 @@ export default function Home() {
       {/* Ingredient Spotlight */}
       <section className="ingredients-spotlight">
         <div className="section-header">
-          <span className="section-subtitle">Crafted with Purity</span>
-          <h2 className="section-title">The Three Golden Pillars</h2>
+          <span className="section-subtitle">Made the familiar way</span>
+          <h2 className="section-title">What Goes Into a Bowl</h2>
           <p className="section-desc">
-            The secret behind maintaining the legendary taste of Ansari's Cendol lies in the absolute quality of our natural ingredients.
+            Straightforward ingredients and traditional preparation make each bowl cool, sweet, and satisfying.
           </p>
         </div>
 
@@ -80,24 +80,21 @@ export default function Home() {
             <div className="ingredient-num">01</div>
             <h3>Pandan Noodles</h3>
             <p>
-              Soft, bright green noodles made of high-quality rice flour, colored and flavored naturally 
-              by the squeezed juice of freshly harvested pandan leaves. Pushed by hand through a traditional sieve.
+              Green cendol noodles give every bowl its familiar pandan flavour and gentle bite.
             </p>
           </div>
           <div className="ingredient-card glass-card">
             <div className="ingredient-num">02</div>
             <h3>Gula Melaka Syrup</h3>
             <p>
-              A fine, secret mixture of premium dark palm sugars, cooked slow and caramelized. Handed down 
-              directly from Ansari's father, this rich, velvety syrup forms the soul of our cendol.
+              Palm sugar syrup brings the deep, comforting sweetness that regulars remember.
             </p>
           </div>
           <div className="ingredient-card glass-card">
             <div className="ingredient-num">03</div>
             <h3>Creamy Coconut Milk</h3>
             <p>
-              Freshly squeezed daily from mature coconuts. Its rich, velvety texture creates the perfect 
-              milky base to balance the caramelized sweetness of the syrup and the coolness of shaved ice.
+              Coconut milk and shaved ice keep the bowl refreshing in Taiping's warm weather.
             </p>
           </div>
         </div>
@@ -111,20 +108,28 @@ export default function Home() {
           </div>
           <div className="heritage-intro-text">
             <span className="section-subtitle">Since 1940</span>
-            <h2>"Taiping Cendol — A Family Trade For Three Generations"</h2>
-            <p className="quote">
-              "A visit to the town of Taiping is considered incomplete if visitors fail to taste one of Malaysia's favourite drinks, cendol."
+            <h2>A Family Tradition, One Bowl at a Time</h2>
+            <p>
+              Ansari's Famous Cendol has been part of everyday Taiping life since the 1940s. Its Indian-Muslim family roots and traditional way of serving cendol have kept generations of locals coming back.
             </p>
             <p>
-              Our brand's grandfather, <strong>P.M. Abdul Kader</strong>, arrived in Taiping from India in the 1940s. Operating near the historical Bismillah Restaurant along Jalan Taming Sari, he introduced this refreshing dessert to the local community. In the late 1940s, a bowl cost just one to three cents.
-            </p>
-            <p>
-              Today, owner <strong>Ansari Abdul Rahman</strong> preserves this heritage, using the same recipe passed down by his father, S.M. Abdul Rahman.
+              Today, the family continues the simple routine: prepare, serve, and welcome everyone looking for a refreshing bowl at a fair price.
             </p>
             <Link to="/story" className="link-button">
               Read the Full Story <ArrowRight size={16} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="ingredients-spotlight">
+        <div className="section-header">
+          <span className="section-subtitle">Before You Visit</span>
+          <h2 className="section-title">A Few Helpful Things to Know</h2>
+          <p className="section-desc">
+            Seating is limited and first-come, first-served. Peak times can mean a short wait, and takeaway orders are common. Popular flavours—especially Cendol Pulut—may sell out before closing, so visiting earlier is a good idea.
+          </p>
+          <Link to="/visit" className="link-button">Plan Your Visit <ArrowRight size={16} /></Link>
         </div>
       </section>
 

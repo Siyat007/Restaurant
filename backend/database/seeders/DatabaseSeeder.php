@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Cendol served with glutinous rice.',
             'price' => 2.60,
             'category' => 'cendol',
-            'tag' => 'Heritage'
+            'tag' => 'Local Favourite'
         ]);
 
         MenuItem::create([
@@ -106,8 +106,8 @@ class DatabaseSeeder extends Seeder
 
         // Seed Branches
         Branch::create([
-            'city' => 'Taiping Flagship',
-            'address' => 'Jalan Taming Sari (Main Road), 34000 Taiping, Perak',
+            'city' => 'Taiping Stall',
+            'address' => '92, Jalan Barrack, 34000 Taiping, Perak, Malaysia',
             'status' => 'Active'
         ]);
     }

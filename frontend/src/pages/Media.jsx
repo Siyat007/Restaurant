@@ -5,52 +5,52 @@ const GALLERY_SLIDES = [
   {
     image: '/images/afc-shop-pic.png',
     title: 'Ansari Famous Cendol Shop',
-    description: 'The storefront and service counter where customers gather for the signature Taiping cendol experience.'
+    description: 'The real stall front and counter where bowls are served to Taiping regulars and visitors.'
   },
   {
     image: '/images/afc-customers.png',
     title: 'Customers at the Shop',
-    description: 'Guests enjoying the lively atmosphere around Ansari Famous Cendol.'
+    description: 'Local customers enjoying a simple break over cendol.'
   },
   {
     image: '/images/afc-customerss.png',
     title: 'A Busy Cendol Stop',
-    description: 'A look at the crowd and everyday customer moments at the shop.'
+    description: 'An everyday busy moment at the family-run stall.'
   },
   {
     image: '/images/afc-happy-customers.png',
     title: 'Happy Customers',
-    description: 'Visitors sharing a cheerful moment after enjoying their cendol.'
+    description: 'Customers sharing a cheerful cendol stop together.'
   },
   {
     image: '/images/afc-customer.jpg',
     title: 'Customer Moment',
-    description: 'A captured visit from the Ansari Famous Cendol customer gallery.'
+    description: 'A real customer moment from the stall.'
   },
   {
     image: '/images/afc-2-cust.jpg',
     title: 'Cendol Together',
-    description: 'Two customers enjoying the shop experience together.'
+    description: 'Cendol shared the easy, local way.'
   },
   {
     image: '/images/afc-image4.jpg',
     title: 'Shop Gallery Photo',
-    description: 'A photo from the AFC shop collection.'
+    description: 'A look inside the everyday atmosphere around the stall.'
   },
   {
     image: '/images/afc-screenshot-1.png',
     title: 'AFC Photo Collection',
-    description: 'A selected image from the AFC shop photos folder.'
+    description: 'Freshly prepared cendol and the people who make the stall lively.'
   },
   {
     image: '/images/afc-screenshot-2.png',
     title: 'AFC Gallery Highlight',
-    description: 'Another highlight from the AFC shop photo collection.'
+    description: 'A glimpse of the simple serving tradition at Ansari Famous Cendol.'
   },
   {
     image: '/images/afc-screenshot-3.png',
     title: 'AFC Customer Gallery',
-    description: 'A customer-focused image from the AFC shop photos folder.'
+    description: 'A familiar Taiping cendol moment with local customers.'
   }
 ];
 
@@ -101,11 +101,10 @@ export default function Media() {
       {/* Media Header */}
       <section className="media-hero">
         <div className="media-hero-content">
-          <span className="section-subtitle">Heritage in Focus</span>
+          <span className="section-subtitle">Life at the Stall</span>
           <h1>Media & Gallery</h1>
           <p>
-            Browse historical records, sketches, and photographs documenting the history 
-            of Ansari's Famous Cendol in Taiping.
+            See the real stall atmosphere, freshly prepared cendol, and the customers who make Ansari's part of Taiping.
           </p>
         </div>
       </section>
@@ -113,8 +112,8 @@ export default function Media() {
       {/* Carousel Gallery Section */}
       <section className="carousel-section">
         <div className="section-header">
-          <span className="section-subtitle">Visual Archives</span>
-          <h2 className="section-title">A Window into History</h2>
+          <span className="section-subtitle">From Our Stall</span>
+          <h2 className="section-title">Everyday Taiping Moments</h2>
         </div>
 
         <div className="carousel-wrapper glass-card">
@@ -160,10 +159,10 @@ export default function Media() {
       {/* Reputation Videos Section */}
       <section className="videos-section">
         <div className="section-header">
-          <span className="section-subtitle">Restaurant Reputation</span>
-          <h2 className="section-title">Featured YouTube Videos</h2>
+          <span className="section-subtitle">Videos</span>
+          <h2 className="section-title">Watch the Stall in Action</h2>
           <p className="section-desc">
-            Watch customer stories and media features that showcase the reputation of Ansari's Famous Cendol.
+            Watch visits and moments that show the simple, busy rhythm of Ansari's Famous Cendol.
           </p>
         </div>
 
@@ -182,28 +181,6 @@ export default function Media() {
         </div>
       </section>
 
-      {/* Special Thanks & Patron Section */}
-      <section className="patrons-section">
-        <div className="section-header">
-          <span className="section-subtitle">With Heartfelt Gratitude</span>
-          <h2 className="section-title">Special Acknowledgements</h2>
-          <p className="section-desc">
-            We honor the government ministries, municipal departments, and local organizations who contributed to the historic success of:
-          </p>
-          <div className="heritage-project-title">
-            <Award size={20} /> "A Path to Street Heritage" • 27 November 2004
-          </div>
-        </div>
-
-        <div className="patrons-grid">
-          {SPECIAL_THANKS.map((name, index) => (
-            <div key={index} className="patron-badge glass-card">
-              <span className="badge-heart"><Heart size={12} fill="currentColor" /></span>
-              <span>{name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <style>{`
         .media-hero {
