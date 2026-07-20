@@ -2,57 +2,85 @@ import React, { useState, useEffect } from 'react';
 import { CheckCircle2, XCircle, Trash2, Lock, RefreshCw, ImageOff } from 'lucide-react';
 
 export default function AdminMemories() {
-  const [token, setToken] = useState(sessionStorage.getItem('afc_admin_token') || '');
-  const [tokenInput, setTokenInput] = useState('');
-  const [authed, setAuthed] = useState(!!sessionStorage.getItem('afc_admin_token'));
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [csrfToken, setCsrfToken] = useState('');
+  const [authed, setAuthed] = useState(false);
   const [memories, setMemories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('pending');
 
-  const loadMemories = (authToken) => {
+  const csrfHeaders = (headers = {}) => ({ ...headers, 'X-CSRF-TOKEN': csrfToken });
+
+  const loadMemories = () => {
     setLoading(true);
     setError(null);
     fetch('/api/admin/memories', {
-      headers: { 'X-Admin-Token': authToken },
+      credentials: 'same-origin',
     })
       .then(async (res) => {
-        if (res.status === 401) throw new Error('Invalid admin token.');
+        if (res.status === 401 || res.status === 403) throw new Error('Your session has expired. Please sign in again.');
         if (!res.ok) throw new Error('Could not reach the server.');
         return res.json();
       })
       .then((data) => {
         setMemories(data);
         setAuthed(true);
-        sessionStorage.setItem('afc_admin_token', authToken);
-        setToken(authToken);
       })
       .catch((err) => {
         setError(err.message);
         setAuthed(false);
-        sessionStorage.removeItem('afc_admin_token');
       })
       .finally(() => setLoading(false));
   };
 
   useEffect(() => {
-    if (token) loadMemories(token);
+    fetch('/api/admin/csrf-token', { credentials: 'same-origin' })
+      .then((res) => res.json())
+      .then((data) => setCsrfToken(data.token))
+      .then(() => fetch('/api/admin/me', { credentials: 'same-origin' }))
+      .then((res) => {
+        if (!res.ok) throw new Error('Not signed in');
+        setAuthed(true);
+        loadMemories();
+      })
+      .catch(() => setAuthed(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    loadMemories(tokenInput);
+    setLoading(true);
+    setError(null);
+    fetch('/api/admin/login', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: csrfHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ email, password }),
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error((await res.json()).message || 'Sign-in failed.');
+        return res.json();
+      })
+      .then(() => {
+        setPassword('');
+        setAuthed(true);
+        loadMemories();
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
   };
 
   const updateStatus = (id, status) => {
     fetch(`/api/admin/memories/${id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
+      credentials: 'same-origin',
+      headers: csrfHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({ status }),
     })
-      .then((res) => res.json())
-      .then(() => loadMemories(token))
+      .then((res) => { if (!res.ok) throw new Error('Update failed'); return res.json(); })
+      .then(() => loadMemories())
       .catch(() => setError('Failed to update. Please try again.'));
   };
 
@@ -60,18 +88,20 @@ export default function AdminMemories() {
     if (!window.confirm('Permanently delete this memory? This cannot be undone.')) return;
     fetch(`/api/admin/memories/${id}`, {
       method: 'DELETE',
-      headers: { 'X-Admin-Token': token },
+      credentials: 'same-origin',
+      headers: csrfHeaders(),
     })
-      .then((res) => res.json())
-      .then(() => loadMemories(token))
+      .then((res) => { if (!res.ok) throw new Error('Delete failed'); return res.json(); })
+      .then(() => loadMemories())
       .catch(() => setError('Failed to delete. Please try again.'));
   };
 
   const logout = () => {
-    sessionStorage.removeItem('afc_admin_token');
-    setAuthed(false);
-    setToken('');
-    setMemories([]);
+    fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin', headers: csrfHeaders() })
+      .finally(() => {
+        setAuthed(false);
+        setMemories([]);
+      });
   };
 
   const filteredMemories = filter === 'all' ? memories : memories.filter((m) => m.status === filter);
@@ -82,13 +112,19 @@ export default function AdminMemories() {
         <form className="admin-login-card" onSubmit={handleLogin}>
           <Lock size={28} />
           <h2>Memories Moderation</h2>
-          <p>Enter the admin token to review submissions.</p>
+          <p>Sign in to review submissions.</p>
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoFocus
+          />
           <input
             type="password"
-            placeholder="Admin token"
-            value={tokenInput}
-            onChange={(e) => setTokenInput(e.target.value)}
-            autoFocus
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" disabled={loading}>{loading ? 'Checking...' : 'Enter'}</button>
           {error && <p className="admin-error">{error}</p>}
@@ -106,7 +142,7 @@ export default function AdminMemories() {
           <p>Approve or reject visitor-submitted memories before they go live on the public wall.</p>
         </div>
         <div className="admin-header-actions">
-          <button className="icon-btn" onClick={() => loadMemories(token)} aria-label="Refresh">
+          <button className="icon-btn" onClick={() => loadMemories()} aria-label="Refresh">
             <RefreshCw size={18} />
           </button>
           <button className="logout-btn" onClick={logout}>Log Out</button>

@@ -109,9 +109,7 @@ img {
   right: 0;
   height: 80px;
   z-index: 1000;
-  background: rgba(26, 26, 26, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--dark);
   border-bottom: 1px solid var(--border-light);
   color: var(--text-light);
   display: flex;
@@ -300,7 +298,7 @@ img {
   color: var(--primary-light);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
   display: block;
@@ -359,13 +357,22 @@ img {
   transform: translateY(-2px);
 }
 
-/* Glass card styling */
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: var(--cream-light);
+  border: 1px solid hsla(28, 40%, 40%, 0.15);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: radial-gradient(hsla(28, 30%, 30%, 0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
 }
 
 /* --- Responsive Media Queries --- */

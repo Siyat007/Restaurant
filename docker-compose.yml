@@ -6,14 +6,31 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: cendol_backend
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./backend:/var/www
+    env_file:
+      - ./backend/.env
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
-      - APP_KEY=base64:7k5m7gG4a69jW+L6n14R9wZ5+S2m3K1e7k8L9tG4a6M=
-      - DB_CONNECTION=sqlite
-      - DB_DATABASE=/var/www/database/database.sqlite
+      APP_ENV: production
+      APP_DEBUG: "false"
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/www/database/database.sqlite
+    volumes:
+      - cendol_database:/var/www/database
+      - cendol_uploads:/var/www/storage/app/public
     restart: unless-stopped
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx.Dockerfile
+    container_name: cendol_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - cendol_uploads:/var/www/storage/app/public:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  cendol_database:
+  cendol_uploads:

@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\Memory;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
 {
@@ -119,25 +120,10 @@ class ApiController extends Controller
     }
 
     /**
-     * Simple shared-secret check for the moderation endpoints below.
-     * Not full authentication - fine for a single-owner admin panel,
-     * but should be upgraded if multiple staff need accounts.
-     */
-    private function checkAdminToken(Request $request)
-    {
-        $token = $request->header('X-Admin-Token');
-        return $token && $token === env('ADMIN_TOKEN');
-    }
-
-    /**
      * [Admin] List all memories regardless of status, newest first.
      */
     public function getAllMemoriesAdmin(Request $request)
     {
-        if (!$this->checkAdminToken($request)) {
-            return response()->json(['status' => 'error', 'message' => 'Unauthorized'], 401);
-        }
-
         return response()->json(Memory::orderByDesc('created_at')->get());
     }
 
@@ -146,10 +132,6 @@ class ApiController extends Controller
      */
     public function updateMemoryStatus(Request $request, $id)
     {
-        if (!$this->checkAdminToken($request)) {
-            return response()->json(['status' => 'error', 'message' => 'Unauthorized'], 401);
-        }
-
         $validator = Validator::make($request->all(), [
             'status' => 'required|in:pending,approved,rejected',
         ]);
@@ -162,6 +144,13 @@ class ApiController extends Controller
         $memory->status = $request->status;
         $memory->save();
 
+        Log::channel('daily')->info('Memory moderation status changed', [
+            'admin_id' => $request->user()->id,
+            'memory_id' => $memory->id,
+            'status' => $memory->status,
+            'ip' => $request->ip(),
+        ]);
+
         return response()->json(['status' => 'success', 'data' => $memory]);
     }
 
@@ -170,15 +159,17 @@ class ApiController extends Controller
      */
     public function deleteMemoryAdmin(Request $request, $id)
     {
-        if (!$this->checkAdminToken($request)) {
-            return response()->json(['status' => 'error', 'message' => 'Unauthorized'], 401);
-        }
-
         $memory = Memory::findOrFail($id);
         if ($memory->photo_path) {
             Storage::disk('public')->delete($memory->photo_path);
         }
         $memory->delete();
+
+        Log::channel('daily')->info('Memory moderation deleted', [
+            'admin_id' => $request->user()->id,
+            'memory_id' => $memory->id,
+            'ip' => $request->ip(),
+        ]);
 
         return response()->json(['status' => 'success']);
     }

@@ -1,6 +1,14 @@
 /vendor
-/node_modules
+/node_modules/
+**/node_modules/
+**/dist/
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_rsa.pub
 /storage/logs/*
 /storage/framework/cache/*
 /storage/framework/sessions/*
