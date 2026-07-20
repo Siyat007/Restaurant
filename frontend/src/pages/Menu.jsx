@@ -391,6 +391,14 @@ export default function Menu() {
             grid-template-columns: 1fr;
           }
         }
+        @media (max-width: 600px) {
+          .menu-hero { padding: 4rem 1.25rem 3rem; }
+          .menu-hero h1 { font-size: 2.75rem; }
+          .menu-section { padding: 3.5rem 1.25rem; }
+          .menu-filters { gap: 0.5rem; }
+          .filter-btn { padding: 0.6rem 0.85rem; font-size: 0.82rem; }
+          .menu-card { padding: 1.25rem; }
+        }
       `}</style>
     </div>
   );

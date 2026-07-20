@@ -1,10 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Heart, Award, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Star, Heart, Award, ShieldCheck, Clock, MapPin, Phone, MessageCircle, Navigation } from 'lucide-react';
+
+const PHONE_NUMBER = '+60 5-808 2004';
+const PHONE_LINK = 'tel:+6058082004';
+const WHATSAPP_LINK = 'https://wa.me/6058082004';
+const DIRECTIONS_LINK = 'https://www.google.com/maps/search/?api=1&query=Ansari%20Famous%20Cendol%2C%2092%20Jalan%20Barrack%2C%2034000%20Taiping%2C%20Perak%2C%20Malaysia';
+
+function getStallStatus() {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Kuala_Lumpur',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23',
+  }).formatToParts(new Date());
+  const hour = Number(parts.find((part) => part.type === 'hour')?.value);
+  const minute = Number(parts.find((part) => part.type === 'minute')?.value);
+  const currentMinutes = hour * 60 + minute;
+
+  return currentMinutes >= 10 * 60 && currentMinutes < 18 * 60 + 30
+    ? { open: true, label: 'Open Now' }
+    : { open: false, label: 'Closed — reopens at 10:00 AM' };
+}
 
 export default function Home() {
   const [bowlIngredients, setBowlIngredients] = useState([]);
   const [showSyrupAnimation, setShowSyrupAnimation] = useState(false);
+  const [stallStatus, setStallStatus] = useState(getStallStatus);
+
+  useEffect(() => {
+    const updateStatus = () => setStallStatus(getStallStatus());
+    const interval = window.setInterval(updateStatus, 60_000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   const addIngredient = (ingredient) => {
     if (!bowlIngredients.includes(ingredient)) {
@@ -47,6 +75,9 @@ export default function Home() {
             <Link to="/story" className="btn-secondary">
               Discover Our Story
             </Link>
+            <a href={WHATSAPP_LINK} className="btn-primary hero-order-cta" target="_blank" rel="noreferrer">
+              <MessageCircle size={20} /> Call / WhatsApp to Order
+            </a>
           </div>
         </div>
         <div className="hero-image-container">
@@ -61,6 +92,31 @@ export default function Home() {
             </div>
             <p>"A must-visit whenever I'm in Taiping."</p>
             <span>— Customer experience</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="visit-today-strip" aria-label="Visit Ansari's Famous Cendol today">
+        <div className="visit-today-content glass-card">
+          <div className="visit-today-heading">
+            <span className={`open-status ${stallStatus.open ? 'is-open' : 'is-closed'}`}>
+              <span aria-hidden="true"></span>{stallStatus.label}
+            </span>
+            <h2>Visit Us Today</h2>
+          </div>
+          <div className="visit-today-details">
+            <div className="visit-today-item">
+              <Clock size={20} aria-hidden="true" />
+              <div><strong>Operating hours</strong><span>Open Daily: 10:00 AM - 6:30 PM</span></div>
+            </div>
+            <div className="visit-today-item">
+              <Phone size={20} aria-hidden="true" />
+              <div><strong>Phone or WhatsApp</strong><span><a href={PHONE_LINK}>{PHONE_NUMBER}</a> · <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">WhatsApp</a></span></div>
+            </div>
+            <div className="visit-today-item">
+              <MapPin size={20} aria-hidden="true" />
+              <div><strong>Taiping Stall</strong><a href={DIRECTIONS_LINK} target="_blank" rel="noreferrer">Get Directions <Navigation size={14} /></a></div>
+            </div>
           </div>
         </div>
       </section>
@@ -290,7 +346,10 @@ export default function Home() {
         .hero-actions {
           display: flex;
           gap: 1.5rem;
+          flex-wrap: wrap;
         }
+        .hero-order-cta { background-color: var(--amber); box-shadow: 0 4px 15px hsla(28, 70%, 35%, 0.25); }
+        .hero-order-cta:hover { background-color: var(--amber-light); }
         .hero-image-container {
           position: relative;
           display: flex;
@@ -336,6 +395,21 @@ export default function Home() {
           font-weight: 600;
           color: var(--primary-light);
         }
+
+        .visit-today-strip { padding: 0 8% 3rem; background: var(--cream); }
+        .visit-today-content { max-width: 1200px; margin: -0.5rem auto 0; padding: 1.4rem 1.75rem; display: flex; align-items: center; gap: 2rem; z-index: 1; }
+        .visit-today-heading { min-width: 170px; }
+        .visit-today-heading h2 { color: var(--amber); font-family: var(--font-serif); font-size: 1.65rem; margin-top: 0.4rem; }
+        .open-status { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+        .open-status span { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: currentColor; }
+        .open-status.is-open { color: var(--primary); }
+        .open-status.is-closed { color: #a44720; }
+        .visit-today-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; flex: 1; }
+        .visit-today-item { display: flex; gap: 0.7rem; align-items: flex-start; color: var(--primary); }
+        .visit-today-item > div { display: flex; flex-direction: column; gap: 0.15rem; color: var(--text-muted); font-size: 0.88rem; }
+        .visit-today-item strong { color: var(--text-dark); font-size: 0.82rem; }
+        .visit-today-item a { color: var(--primary); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+        .visit-today-item a:last-child { display: inline-flex; align-items: center; gap: 0.25rem; }
 
         /* Ingredient Spotlight */
         .ingredients-spotlight {
@@ -684,6 +758,8 @@ export default function Home() {
           .hero-actions {
             justify-content: center;
           }
+          .visit-today-content { flex-direction: column; align-items: flex-start; }
+          .visit-today-details { width: 100%; }
           .hero-floating-card {
             left: 20px;
           }
@@ -698,6 +774,13 @@ export default function Home() {
             grid-template-columns: 1fr;
             padding: 2rem;
           }
+        }
+        @media (max-width: 640px) {
+          .hero-actions { gap: 0.75rem; }
+          .hero-actions .btn-primary, .hero-actions .btn-secondary { justify-content: center; width: 100%; }
+          .visit-today-strip { padding: 0 4% 2.5rem; }
+          .visit-today-content { padding: 1.25rem; }
+          .visit-today-details { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>

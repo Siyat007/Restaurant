@@ -527,6 +527,15 @@ export default function VisitUs() {
             grid-template-columns: 1fr;
           }
         }
+        @media (max-width: 600px) {
+          .visit-hero { padding: 4rem 1.25rem 3rem; }
+          .visit-hero h1 { font-size: 2.75rem; }
+          .main-stall-section, .inquiries-branches-section { padding: 3.5rem 1.25rem; }
+          .main-stall-grid, .inquiry-grid { gap: 2rem; }
+          .stall-info-card, .contact-form-side { padding: 1.5rem 1.15rem; }
+          .mock-map { min-height: 280px; }
+          .info-item { gap: 0.75rem; }
+        }
       `}</style>
     </div>
   );

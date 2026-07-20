@@ -416,3 +416,19 @@ img {
     text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 68px;
+    padding: 0 1rem;
+  }
+  .navbar.scrolled { height: 64px; }
+  .page-content { margin-top: 68px; }
+  .logo-icon { width: 34px; height: 34px; }
+  .logo-text { font-size: 1.45rem; }
+  .mobile-menu-btn { min-width: 44px; min-height: 44px; }
+  .section-title { font-size: clamp(2rem, 10vw, 2.5rem); }
+  .section-desc { font-size: 1rem; }
+  .footer { padding: 3rem 1.25rem 1.5rem; }
+  .footer-brand h3 { font-size: 1.8rem; }
+}

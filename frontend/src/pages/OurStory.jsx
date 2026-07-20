@@ -474,6 +474,17 @@ export default function OurStory() {
             right: auto !important;
           }
         }
+        @media (max-width: 600px) {
+          .story-hero { padding: 4rem 1.25rem 3rem; }
+          .story-hero h1 { font-size: 2.75rem; }
+          .hero-lead { font-size: 1rem; }
+          .history-chapter, .timeline-section, .family-legacy-section, .secret-showcase { padding: 3.5rem 1.25rem; }
+          .chapter-grid, .secret-grid { gap: 2rem; }
+          .chapter-text h2, .secret-content h2 { font-size: 2.25rem; }
+          .timeline-content { padding: 1.15rem; }
+          .tree-node { padding: 1.5rem 1.15rem; }
+          .heritage-seal { padding: 1rem; gap: 0.85rem; }
+        }
       `}</style>
     </div>
   );

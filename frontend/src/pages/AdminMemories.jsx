@@ -253,6 +253,15 @@ const adminStyles = `
   }
   .admin-error { color: #dc3545; font-size: 0.85rem; }
 
+  @media (max-width: 600px) {
+    .admin-login-container { padding: 1.25rem; min-height: 70vh; }
+    .admin-login-card { padding: 2rem 1.25rem; }
+    .admin-container { padding: 2rem 1.25rem; }
+    .admin-header { margin-bottom: 1.25rem; }
+    .admin-header h1 { font-size: 1.5rem; }
+    .admin-grid { grid-template-columns: 1fr; gap: 1rem; }
+  }
+
   .admin-container { padding: 3rem 5%; max-width: 1300px; margin: 0 auto; }
   .admin-header {
     display: flex;
